@@ -124,7 +124,7 @@ class Client extends EventEmitter {
     }
     let result = null;
     try {
-      result = await proc.method(context, args);
+      result = await proc.method(context)(args);
     } catch (error) {
       if (error.message === 'Timeout reached') {
         error.code = error.httpCode = 408;
